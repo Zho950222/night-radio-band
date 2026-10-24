@@ -984,3 +984,21 @@ a {
         transition-duration: 0.01ms !important;
     }
 }
+
+@media (max-width: 800px) {
+    .tour-stop {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px 12px;
+        min-height: 0;
+        padding: 16px 0;
+    }
+    .tour-venue {
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
+    }
+    .tour-date { min-width: 0; }
+    .tour-venue p, .tour-address { overflow-wrap: normal; word-break: keep-all; }
+    .tour-tag { grid-column: 2; grid-row: 1; }
+}
