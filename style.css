@@ -778,20 +778,32 @@ a {
     }
 
     .tour-stop {
-        grid-template-columns: 110px 1fr auto;
-        gap: 14px;
-        min-height: 88px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px 12px;
+        min-height: 0;
         padding: 12px 0;
     }
 
     .tour-venue {
-        grid-template-columns: 120px minmax(0, 1fr);
-        column-gap: 8px;
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
+    }
+
+    .tour-venue p,
+    .tour-address {
+        overflow-wrap: normal;
+        word-break: keep-all;
+    }
+
+    .tour-date {
+        min-width: 0;
     }
 
     .tour-tag {
-        grid-column: 3;
-        grid-row: 1 / span 2;
+        grid-column: 2;
+        grid-row: 1;
     }
 }
 
@@ -865,6 +877,34 @@ a {
     .music-progress::-moz-range-thumb {
         height: 38px;
     }
+}
+
+@media print {
+    .site-header,
+    .scroll-cue,
+    .hero::before,
+    .hero::after {
+        display: none !important;
+    }
+
+    .hero {
+        display: none !important;
+    }
+
+    .section,
+    .music-player,
+    .tour-stop,
+    .member-card,
+    .site-footer {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .music-section,
+    .site-footer {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
 
     .music-error {
         grid-column: 1 / -1;
@@ -926,17 +966,20 @@ a {
     }
 
     .tour-stop {
-        grid-template-columns: 88px 1fr auto;
-        gap: 10px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px 12px;
         padding: 10px 0;
     }
 
     .tour-venue {
-        grid-template-columns: 105px minmax(0, 1fr);
-        column-gap: 6px;
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 4px;
     }
 
     .tour-date {
+        min-width: 0;
         font-size: 17px;
     }
 
@@ -954,6 +997,8 @@ a {
     }
 
     .tour-tag {
+        grid-column: 2;
+        grid-row: 1;
         padding: 3px 7px;
         font-size: 9px;
     }
@@ -983,22 +1028,4 @@ a {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
-}
-
-@media (max-width: 800px) {
-    .tour-stop {
-        grid-template-columns: minmax(0, 1fr) auto;
-        align-items: start;
-        gap: 10px 12px;
-        min-height: 0;
-        padding: 16px 0;
-    }
-    .tour-venue {
-        grid-column: 1 / -1;
-        grid-template-columns: minmax(0, 1fr);
-        row-gap: 4px;
-    }
-    .tour-date { min-width: 0; }
-    .tour-venue p, .tour-address { overflow-wrap: normal; word-break: keep-all; }
-    .tour-tag { grid-column: 2; grid-row: 1; }
 }
