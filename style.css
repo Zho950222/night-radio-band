@@ -163,6 +163,14 @@ a {
     text-shadow: 0 4px 28px rgba(0, 0, 0, 0.35);
 }
 
+.tour-heading h2 {
+    white-space: nowrap;
+}
+
+.music-section .section-heading h2 span {
+    white-space: nowrap;
+}
+
 .hero-subtitle {
     margin: 0;
     color: #e7a59a;
@@ -846,6 +854,20 @@ a {
 
     .site-header nav a::after {
         bottom: 14px;
+    }
+
+    .hero h1 {
+        font-size: clamp(34px, 10vw, 46px);
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+    }
+
+    .music-section .section-heading h2 {
+        font-size: clamp(24px, 6.8vw, 30px);
+    }
+
+    .music-section .section-heading h2 span {
+        display: block;
     }
 
     .music-player {
